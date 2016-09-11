@@ -3,9 +3,10 @@ package org.rumoku.bc
 import org.rumoku.bc.BerlinClockBuilder._
 import org.rumoku.bc.Helper._
 import org.scalatest.{FlatSpec, Matchers}
+import org.rumoku.bc.BCImplicits._
 
 class BCDrawTest extends FlatSpec with Matchers {
-  val drawer: DrawBC[String] = new DrawBCStringSimple
+  implicit val drawer: DrawBC[String] = new DrawBCStringSimple
 
   "BC" should "be properly drawn" in {
     val img = drawer.draw(getBerlinClockTime(16, 21, 19))
@@ -26,7 +27,7 @@ class BCDrawTest extends FlatSpec with Matchers {
         (0 to 59).foreach { mm =>
           (0 to 59).foreach { ss =>
             val time = getBerlinClockTime(hh, mm, ss)
-            drawer.draw(time).length should be(52)
+            time.draw.length should be(52)
             x += 1
           }
         }

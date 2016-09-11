@@ -6,6 +6,15 @@ trait DrawBC[T] {
   def draw(bc: BerlinClock): T
 }
 
+
+object BCImplicits {
+
+  implicit class DrawableBC(bc: BerlinClock) {
+    def draw[T](implicit drawer: DrawBC[T]) = drawer.draw(bc)
+  }
+
+}
+
 trait DrawBCAsString extends DrawBC[String] {
 
   def red: String
