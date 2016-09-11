@@ -33,9 +33,13 @@ Note: program can be interrupted by invoking: `Ctrl+C`
 Berlin clock consist of 5 lines.
 
 line 0: 1 yellow lamp in a middle - light every even second
+
 line 1: 4 red lamps - 5 hours each
+
 line 2: 4 red lamps - next 1 hour each
+
 line 3: 5 minutes x 11 yellow and red lamps (3d, 6h, 9th are red)
+
 line 4: 4 yellow lamps - next 1 minute each
 
 ### Representation
