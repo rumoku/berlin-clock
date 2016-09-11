@@ -12,9 +12,9 @@ SBT  0.13+
 
 **Run from SBT**
 
-Execute `sbt run` command from sbt to run demo. It will output some random time sequence to show how Berlin clock works.
+Execute `sbt run` command to run demo. It will output random time sequence to demonstrate how Berlin clock works.
 
-Execute `sbt "run -color"` - output Berlin clock time within color support. Note some terminals does not support this option.
+Execute `sbt "run -color"` - same output of Berlin clock time within color support. Note some terminals does not support this option.
 
 **Run from package**
 
