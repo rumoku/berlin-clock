@@ -14,21 +14,22 @@ trait DrawBCAsString extends DrawBC[String] {
 
   def blank: String
 
-  private def build4Lights(maxSize: Int, lSize: Int, color: String) =
-    s"""${skip(2)}${fill(lSize, color + " ")}${fill(maxSize - lSize, blank + " ")}"""
-
   protected def buildString(bc: BerlinClock) = {
-    s"""${skip(5)}${if (bc.line0) yellow else blank}
-       |${build4Lights(Line1Len, bc.line1, red)}
-       |${build4Lights(Line2Len, bc.line2, red)}
-       |${(1 to bc.line3).map(x => if (x % 3 == 0) red else yellow).mkString}${fill(Line3Len - bc.line3, blank)}
-       |${build4Lights(Line4Len, bc.line4, yellow)}
-    """.stripMargin
+    (List(skip(5), if (bc.line0) yellow else blank, Eol) ++
+      build4Lights(Line1Len, bc.line1, red) ++
+      build4Lights(Line2Len, bc.line2, red) ++
+      List((1 to bc.line3).map(x => if (x % 3 == 0) red else yellow).mkString, fill(Line3Len - bc.line3, blank), Eol) ++
+      build4Lights(Line4Len, bc.line4, yellow)
+      ).mkString
   }
 
-  def skip(x: Int) = List.fill(x)(' ').mkString
+  // extra spaces added to align center
+  private def build4Lights(maxSize: Int, lSize: Int, color: String) =
+  List(skip(2), fill(lSize, color + Space), fill(maxSize - lSize, blank + Space), Eol)
 
-  def fill(size: Int, content: String) = List.fill(size)(content).mkString
+  def skip(x: Int) = Space * x
+
+  def fill(size: Int, content: String) = content * size
 
 }
 

@@ -2,6 +2,8 @@ package org.rumoku.bc
 
 
 object BCConsts {
+  val Eol = "\n"
+  val Space = " "
   val Line1Len, Line2Len, Line4Len = 4
   val Line3Len = 11
 }
