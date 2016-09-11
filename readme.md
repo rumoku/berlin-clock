@@ -2,7 +2,7 @@
 
 ##  Demo
 
-![Alt Text](https://github.com/rumoku/belin-clock/raw/master/berlin-clock.gif)
+![Demo](https://github.com/rumoku/berlin-clock/blob/master/berlin-clock.gif)
 
 **Requirements**
 Java 1.8+
